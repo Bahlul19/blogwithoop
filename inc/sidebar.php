@@ -12,7 +12,9 @@
                                                 while($value = $catagory->fetch_assoc())
                                                 {
                                                     ?>
-                  
+                                            
+                                    <!--Create a new page posts.php and pass the catagory(id)-->
+                                    
 						<li><a href="posts.php?catagory=<?= $value['id']; ?>"><?= $value['cat_name'] ?></a></li>
                                             <?php } } else { ?>
                                                 
@@ -29,9 +31,7 @@
                                    
                             <?php
                             
-//                           $db = new Database();
-                            
-             $sql = "SELECT * FROM tbl_post limit 4"; 
+             $sql = "SELECT * FROM tbl_post limit 5"; 
              $post = $db->select($sql);               
                             if($post)
                             {
@@ -39,11 +39,13 @@
                                 {
                                 ?>                             
     <div class="popular clear">
-	<h3><a href="#">Post title will be go here..</a></h3>
-	<a href="#"><img src="admin/upload/<?php $value['image'] ?>" alt="post image"/></a>
-	<p>Sidebar text will be go here.Sidebar text will be go here.
-            Sidebar text will be go here.Sidebar text will be go here.</p>	
-					</div>
+        
+	<h3><a href="post.php?id=<?= $value['id']; ?>">
+<?= $value['title']; ?></a></h3>
+	<a href="post.php?id=<?= $value['id']; ?>"><img src="admin/upload/<?= $value['image'] ?>" alt="post image"/></a>
+	<?= $format->textShorten($value['body'],100); ?>	
+        
+</div>
             
                    <?php } ?>
                     

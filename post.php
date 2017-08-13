@@ -43,10 +43,12 @@ else
 
         <div class="relatedpost clear">
 	<h2>Related articles</h2>
+        
         <!--For related post write some php code inside it-->
         <?php
         
        $cat_id = $value['cat_id'];
+       //first take the cat_id of the related post
 
        $sql = "SELECT * FROM tbl_post WHERE cat_id = '$cat_id' limit 6"; 
        $post_related = $db->select($sql);  

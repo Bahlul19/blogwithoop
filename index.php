@@ -7,11 +7,11 @@
                     
                     <?php
                     
+
 //                    $db = new Database();
                     //$db object connect with the database class
                     
 //                    $format = new Format();
-
                     ?>
                     
                     <?php 
@@ -23,7 +23,7 @@
                     {
                         while($value = $post->fetch_assoc())
                         {
-                          ?>  
+                          ?>    
                             <div class="samepost clear">
 <h2><a href="post.php?id=<?= $value['id']; ?>">
 <?= $value['title']; ?></a></h2>
