@@ -42,6 +42,7 @@ else
                                    <!--End while loop-->
 
         <div class="relatedpost clear">
+            
 	<h2>Related articles</h2>
         
         <!--For related post write some php code inside it-->
@@ -73,6 +74,7 @@ else
  
 
 	</div>
+		
                              
 
 		</div>
