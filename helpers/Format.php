@@ -14,5 +14,25 @@ class Format
         $body = $body. "....";
         return $body;
     }
+    /*
+    public function validation($data)
+    {
+        $data = trim($data);
+        $data = stripcslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+    
+     * *
+     */
+    
+    public function validation($data)
+    {
+        $data = trim($data);
+        $data = stripcslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+    
 }
 ?>
