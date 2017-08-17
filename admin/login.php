@@ -43,9 +43,9 @@ Session::init();
             $row = mysqli_num_rows($result);
             if($row>0)
             {
-                Session::set("login",true);
-                Session::set("username",$value['username']);
-                Session::set("userId",$value['id']);
+                Session::set("login", true);
+                Session::set("username", $value['username']);
+                Session::set("userId", $value['id']);
                 header("Location:index.php");
             }
             else
@@ -59,7 +59,6 @@ Session::init();
         }
 
     }
-
 ?>
 
             
