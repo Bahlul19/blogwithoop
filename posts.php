@@ -45,9 +45,11 @@ else
   
               <?php } ?>
                     
-                   <?php } else {header ("Location:404.php"); } ?>
+                   <?php } else { ?>
+                    
+                    <h3>No Post Available For This Catagory</h3>
             
-            
+                     <?php } ?>
             	</div>
             
             <?php include('inc/sidebar.php'); ?>
