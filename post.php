@@ -34,7 +34,7 @@ else
                                 ?>
           <h2><?= $value['title']; ?></h2>
 <h4><?= $format->formatDate($value['date']); ?>, By <a href="#"><?= $value['author'] ?></a></h4>
-<img src="admin/upload/<?= $value['image'] ?>" alt="MyImage"/>
+<img src="admin/<?= $value['image'] ?>" alt="MyImage"/>
 
 <p> <?= $value['body']; ?> </p>
 
@@ -60,7 +60,7 @@ else
                 {
                 ?>
                 <a href="post.php?id=<?= $relatedvalue['id']; ?>">
-                <img src="admin/upload/<?= $relatedvalue['image'] ?>" alt="MyImage"/></a>
+                <img src="admin/<?= $relatedvalue['image'] ?>" alt="MyImage"/></a>
 	
 	
        <?php } } else{ echo "No Realted Post Available";}?>
