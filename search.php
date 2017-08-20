@@ -17,7 +17,7 @@ else
             
                     <?php 
                     
- $sql = "SELECT * FROM tbl_post WHERE title LIKE '%$search%' OR body LIKE '%$search%'";
+ $sql = "SELECT * FROM tbl_post WHERE tags LIKE '%$search%' OR body LIKE '%$search%'";
                     $post = $db->select($sql);  
                     
                     if($post)
@@ -45,7 +45,7 @@ else
                     
                    <?php } else {?>  
                     
-                    <p style="color:red">Your Search Query not found</p>
+                    <h3 style="color:red">Your Search Query not found</h3>
                     
                     <?php } ?>
             

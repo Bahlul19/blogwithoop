@@ -44,16 +44,19 @@ $sql = "SELECT tbl_post.*, tbl_catagory.cat_name FROM tbl_post INNER JOIN tbl_ca
                 ?>
                 
                 <tr class="odd gradeX">
-                        <td><?=$value['id']?></td>
-                        <td><?=$value['title']?></td>
-                        <td><?=$format->textShorten($value['body'],50);?></td>
-                       <td><?=$value['cat_name']?></td>
-                       <td><img src="<?= $value['image'];?>" height="40px" width="60px"></td>                       
-<!--                        image should be different-->
-                        <td><?=$value['author']?></td>
-                        <td><?=$value['tags']?></td>
-                        <td><?=$format->formatDate($value['date'])?></td>
-                        <td><a href="">Edit</a> || <a href="">Delete</a></td>
+                    
+        <td><?=$value['id']?></td>
+        <td><?=$value['title']?></td>
+        <td><?=$format->textShorten($value['body'],50);?></td>
+       <td><?=$value['cat_name']?></td>
+       <td><img src="<?= $value['image'];?>" height="40px" width="60px"></td>                       
+<!--image should be different-->
+        <td><?=$value['author']?></td>
+        <td><?=$value['tags']?></td>
+        <td><?=$format->formatDate($value['date'])?></td>
+        <td><a href="edit_post.php?editpostid=<?=$value['id']?>">Edit</a>
+       || <a onclick="return confirm('Are you sure to delete')" href="delete_post.php?delpostid=<?=$value['id']?>">Delete</a></td>
+               
                 </tr>
 
 
