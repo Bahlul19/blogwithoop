@@ -66,7 +66,7 @@ else
        <?php } } else{ echo "No Realted Post Available";}?>
                             
         </div>
-                            <?php } }  else{header("Location:404.php");} ?>
+            <?php } }  else{header("Location:404.php");} ?>
                             
                             
                             

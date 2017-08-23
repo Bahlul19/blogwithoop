@@ -50,9 +50,24 @@ $(window).load(function() {
 	<div class="headersection templete clear">
 		<a href="#">
 			<div class="logo">
-				<img src="images/logo.png" alt="Logo"/>
-				<h2>Website Title</h2>
-				<p>Our website description</p>
+                            
+                            
+                      <?php 
+                            
+                      $sql = "SELECT * FROM tbl_slogan WHERE id='1'";
+                      $blog_title = $db->select($sql);
+
+                      if($blog_title)
+                      {
+                         while($value = $blog_title->fetch_assoc())
+                         {
+                         ?>
+                        <img src="admin/<?= $value['logo'];?>" alt="Logo"/>
+                        <h2><?= $value['title']; ?></h2>
+                        <p><?= $value['slogan'] ?></p>
+                      <?php } } ?>     
+
+                                
 			</div>
 		</a>
 		<div class="social clear">
