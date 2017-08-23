@@ -67,22 +67,36 @@ $(window).load(function() {
                         <p><?= $value['slogan'] ?></p>
                       <?php } } ?>     
 
-                                
+
 			</div>
 		</a>
 		<div class="social clear">
-			<div class="icon clear">
-				<a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
-				<a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
-				<a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
-				<a href="#" target="_blank"><i class="fa fa-google-plus"></i></a>
-			</div>
-			<div class="searchbtn clear">
-			<form action="search.php" method="get">
-				<input type="text" name="search" placeholder="Search keyword..."/>
-				<input type="submit" name="submit" value="Search"/>
-			</form>
-			</div>
+                    
+    <div class="icon clear">
+                         <?php
+
+        $sql = "SELECT * FROM tbl_social WHERE id ='1'";
+        $social_media = $db->select($sql);
+        if($social_media)
+        {
+            while($value = $social_media->fetch_assoc())
+            {
+            ?>      
+        
+            <a href="<?= $value['facebook'] ?>" target="_blank"><i class="fa fa-facebook"></i></a>
+            <a href="<?= $value['twitter'] ?>" target="_blank"><i class="fa fa-twitter"></i></a>
+            <a href="<?= $value['linkedin'] ?>" target="_blank"><i class="fa fa-linkedin"></i></a>
+            <a href="<?= $value['google'] ?>" target="_blank"><i class="fa fa-google-plus"></i></a>
+            
+        <?php } } ?>    
+    </div>
+                    
+    <div class="searchbtn clear">
+    <form action="search.php" method="get">
+            <input type="text" name="search" placeholder="Search keyword..."/>
+            <input type="submit" name="submit" value="Search"/>
+    </form>
+    </div>
 		</div>
 	</div>
 <div class="navsection templete">

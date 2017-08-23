@@ -1,5 +1,9 @@
 <?php include('../lib/Session.php');
-Session::init();
+//Session::init();
+
+//Jodi login kora thake taile direct index.php te dhukbe thats y use that method
+Session::checkLogin();
+
 ?>
 
 <?php include('../config/config.php'); ?>
