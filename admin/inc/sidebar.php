@@ -3,18 +3,32 @@
                 <div class="block" id="section-menu">
                     <ul class="section menu">
                        <li><a class="menuitem">Site Option</a>
-                            <ul class="submenu">
-                                <li><a href="titleslogan.php">Title & Slogan</a></li>
-                                <li><a href="social.php">Social Media</a></li>
-                                <li><a href="copyright.php">Copyright</a></li>
-                                
-                            </ul>
-                        </li>
+                    <ul class="submenu">
+                        <li><a href="titleslogan.php">Title & Slogan</a></li>
+                        <li><a href="social.php">Social Media</a></li>
+                        <li><a href="copyright.php">Copyright</a></li>
+
+                    </ul>
+                  </li>
 						
-                         <li><a class="menuitem">Update Pages</a>
-                            <ul class="submenu">
-                                <li><a>About Us</a></li>
-                                <li><a>Contact Us</a></li>
+    <li><a class="menuitem">Pages</a>
+    <ul class="submenu">
+    <li><a href="addpage.php">Add New Page</a> </li>
+     
+<!--    Php code will go here-->
+    <?php
+
+    $sql = "SELECT * FROM tbl_page";
+    $add_pages = $db->select($sql);
+    
+    if($add_pages)
+    {
+        while($value = $add_pages->fetch_assoc())
+        {
+        ?>
+    <li><a href="edit_page.php?id=<?= $value['id']?>"><?= $value['name']; ?></a> </li>
+    <?php } } ?>
+
                             </ul>
                         </li>
                         <li><a class="menuitem">Category Option</a>

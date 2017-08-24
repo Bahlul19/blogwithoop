@@ -101,8 +101,24 @@ $(window).load(function() {
 	</div>
 <div class="navsection templete">
 	<ul>
+
 		<li><a id="active" href="index.php">Home</a></li>
-		<li><a href="about.php">About</a></li>	
-		<li><a href="contact.php">Contact</a></li>
+		
+          <!-- Pull Out the page from database-->      
+                <?php
+                
+                $sql = "SELECT * FROM tbl_page";
+                $all_pages = $db->select($sql);
+                if($all_pages)
+                {
+                    while($value = $all_pages->fetch_assoc())
+                    {
+                        ?>
+ <li><a href="page.php?pageid=<?=$value['id']?>"><?=$value['name']?></a></li>	
+                    <?php } } ?>
+                
+                
+                
+                
 	</ul>
 </div>
