@@ -12,7 +12,54 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Basic Website</title>
+<!--    PHP CODE WILL BE GOES HERE-->
+    <?php
+    
+    if(isset($_GET['pageid']))
+    {
+        $pageTitleid = $_GET['pageid'];
+        $sql = "SELECT * FROM tbl_page WHERE id ='$pageTitleid'";
+        $page = $db->select($sql);
+        if($page)
+        {
+            while($value = $page->fetch_assoc())
+            {
+               ?>
+                <title>
+                    <?= $value['name']; ?>
+                    -<?= TITLE;?>
+                </title>
+    <?php } } } 
+    
+    //TITLE A EVERY POST ER NAME O ASBE
+    
+    else if(isset($_GET['id']))
+    {
+        $postid = $_GET['id'];
+        $sql = "SELECT * FROM tbl_post WHERE id ='$postid'";
+        $post = $db->select($sql);
+        if($post)
+        {
+            while($value = $post->fetch_assoc())
+            {
+               ?>
+                <title>
+                    <?= $value['title']; ?>
+                    -<?= TITLE;?>
+                </title>
+    <?php } } }
+    
+    else { ?>
+    
+            <title>
+                    <?= $format->title();?>
+                    -<?= TITLE; ?>
+                </title>
+    <?php } ?>
+    
+
+    
+<!--   FOR TITLE SECTION THAT'S WHY WE USE THAT FORMULA ON THAT PART-->
 	<meta name="language" content="English">
 	<meta name="description" content="It is a website about education">
 	<meta name="keywords" content="blog,cms blog">
@@ -50,8 +97,7 @@ $(window).load(function() {
 	<div class="headersection templete clear">
 		<a href="#">
 			<div class="logo">
-                            
-                            
+                                   
                       <?php 
                             
                       $sql = "SELECT * FROM tbl_slogan WHERE id='1'";
@@ -117,8 +163,9 @@ $(window).load(function() {
  <li><a href="page.php?pageid=<?=$value['id']?>"><?=$value['name']?></a></li>	
                     <?php } } ?>
                 
-                
+                   <li><a href="contact.php">Contact</a></li>
                 
                 
 	</ul>
+  
 </div>
