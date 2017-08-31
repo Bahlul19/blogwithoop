@@ -12,9 +12,10 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/xampp/htdocs/blogwithoop/helpers/Format.php</file>
-            <file>file:/E:/xampp/htdocs/blogwithoop/config/config.php</file>
-            <file>file:/E:/xampp/htdocs/blogwithoop/inc/header.php</file>
+            <file>file:/E:/xampp/htdocs/blogwithoop/contact.php</file>
+            <file>file:/E:/xampp/htdocs/blogwithoop/admin/addpage.php</file>
+            <file>file:/E:/xampp/htdocs/blogwithoop/admin/addpost.php</file>
+            <file>file:/E:/xampp/htdocs/blogwithoop/page.php</file>
         </group>
     </open-files>
 </project-private>

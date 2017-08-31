@@ -26,7 +26,7 @@
                           ?>    
                             <div class="samepost clear">
 <h2><a href="post.php?id=<?= $value['id']; ?>">
-<?= $value['title']; ?></a></h2>
+<?= $value['title']; ?></a></h2>             
     <h4><?= $format->formatDate($value['date']); ?>, By <a href="#"><?= $value['author'] ?></a></h4>
 	<a href="#"><img src="admin/<?= $value['image'] ?>" alt="post image"/></a>
 				

@@ -11,7 +11,7 @@
 
 //to check the id and get the id
 
-if(!isset($_GET['editpostid']) ||$_GET['editpostid']== NULL)
+if(!isset($_GET['editpostid']) || $_GET['editpostid']== NULL)
 {
    echo "<script>window.location='postlist.php';</script>";
 //    header("Location:catlist.php");

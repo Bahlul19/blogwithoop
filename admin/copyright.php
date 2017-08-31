@@ -41,15 +41,16 @@
             }
             else
             {
-             echo "<span class='error'>Data Not Updated !</span>";
+             echo "<span class='error'>Data Not Updated!</span>";
             }
         }   
      }
         ?>
         
         <div class="block copyblock"> 
+            
             <?php
-
+            
             $sql = "SELECT * FROM  tbl_footer WHERE id ='1'";
             $copyright = $db->select($sql);
             if($copyright)

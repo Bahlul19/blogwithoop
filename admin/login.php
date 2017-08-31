@@ -31,6 +31,7 @@ Session::checkLogin();
             
     if(isset($_POST['submit']))
     {
+        
         $username = $format->validation($_POST['username']);
         $password = $format->validation(md5($_POST['password']));
 
@@ -52,6 +53,9 @@ Session::checkLogin();
                 Session::set("userId", $value['id']);
                 header("Location:index.php");
             }
+        
+       
+            
             else
             {
     echo "<span style='color:red;font-size:18px'>No Result Found</span>";

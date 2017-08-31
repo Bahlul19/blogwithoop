@@ -96,25 +96,25 @@ $(window).load(function() {
 <body>
 	<div class="headersection templete clear">
 		<a href="#">
-			<div class="logo">
-                                   
-                      <?php 
-                            
-                      $sql = "SELECT * FROM tbl_slogan WHERE id='1'";
-                      $blog_title = $db->select($sql);
+    <div class="logo">
 
-                      if($blog_title)
-                      {
-                         while($value = $blog_title->fetch_assoc())
-                         {
-                         ?>
-                        <img src="admin/<?= $value['logo'];?>" alt="Logo"/>
-                        <h2><?= $value['title']; ?></h2>
-                        <p><?= $value['slogan'] ?></p>
-                      <?php } } ?>     
+<?php 
+
+$sql = "SELECT * FROM tbl_slogan WHERE id='1'";
+$blog_title = $db->select($sql);
+
+if($blog_title)
+{
+while($value = $blog_title->fetch_assoc())
+{
+?>
+<img src="admin/<?= $value['logo'];?>" alt="Logo"/>
+<h2><?= $value['title']; ?></h2>
+<p><?= $value['slogan'] ?></p>
+<?php } } ?>     
 
 
-			</div>
+    </div>
 		</a>
 		<div class="social clear">
                     
@@ -137,8 +137,8 @@ $(window).load(function() {
         <?php } } ?>    
     </div>
                     
-    <div class="searchbtn clear">
-    <form action="search.php" method="get">
+    <div class="searchbtn clear"> 
+         <form action="search.php" method="get">
             <input type="text" name="search" placeholder="Search keyword..."/>
             <input type="submit" name="submit" value="Search"/>
     </form>
@@ -147,8 +147,21 @@ $(window).load(function() {
 	</div>
 <div class="navsection templete">
 	<ul>
-
-		<li><a id="active" href="index.php">Home</a></li>
+                <?php
+                 
+                $path = $_SERVER['SCRIPT_FILENAME'];
+                $currentPage = basename($path, '.php');
+                 
+                 ?> 
+<!--for highlighting the menu -->
+		<li><a
+                  <?php
+                  if($currentPage == 'index')
+                  {
+                      echo 'id="active"';
+                  }
+                  ?>
+                 href="index.php">Home</a></li>
 		
           <!-- Pull Out the page from database-->      
                 <?php
@@ -160,10 +173,28 @@ $(window).load(function() {
                     while($value = $all_pages->fetch_assoc())
                     {
                         ?>
- <li><a href="page.php?pageid=<?=$value['id']?>"><?=$value['name']?></a></li>	
+ <li><a
+         <?php
+         
+if(isset($_GET['pageid'])&& $_GET['pageid'] == $value['id'])
+{
+    echo 'id="active"';
+}
+         
+         ?>
+         
+         
+         href="page.php?pageid=<?=$value['id']?>"><?=$value['name']?></a></li>	
                     <?php } } ?>
                 
-                   <li><a href="contact.php">Contact</a></li>
+                   <li><a 
+                    <?php
+                   if($currentPage == 'contact')
+                   {
+                       echo 'id="active"';
+                   }
+                   ?>  
+                   href="contact.php">Contact</a></li>
                 
                 
 	</ul>
