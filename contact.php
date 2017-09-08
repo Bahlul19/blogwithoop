@@ -2,16 +2,17 @@
 
 <!--Php code will go here-->
 <style>
-    .error
+    .cuserror
     {
         color:red;
-        
+        float: left;
     }
 </style>
 <?php
-
+ /*
 if(isset($_POST['submit']))
 {
+   
     $firstname = $format->validation($_POST['firstname']);
     $lastname = $format->validation($_POST['lastname']);
     $email = $format->validation($_POST['email']);
@@ -21,6 +22,7 @@ if(isset($_POST['submit']))
     $lastname = mysqli_real_escape_string($db->link, $lastname);
     $email = mysqli_real_escape_string($db->link, $email);
     $body = mysqli_real_escape_string($db->link, $body);
+ */
     
 /*
     $error = "";
@@ -48,7 +50,7 @@ if(isset($_POST['submit']))
     //amra else er modde success insert diye debo
 
  */
-
+/*
     $errorFirstname = "";
     $errorLastname = "";
     $errorEmail = "";
@@ -91,6 +93,84 @@ if(isset($_POST['submit']))
             }
     }
 }
+ */
+
+    if(isset($_POST['submit']))
+    {
+        $firstname = $format->validation($_POST['firstname']);
+        $lastname = $format->validation($_POST['lastname']);
+        $email = $format->validation($_POST['email']);
+        $body = $format->validation($_POST['body']);
+        
+        $firstname = mysqli_real_escape_string($db->link, $firstname);
+        $lastname = mysqli_real_escape_string($db->link, $lastname);
+        $email = mysqli_real_escape_string($db->link, $email);
+        $body = mysqli_real_escape_string($db->link, $body);
+        
+        $errorFirstname = "";
+        $errorLastname  = "";
+        $errorEmail     = "";
+        $errorBody      = "";
+        
+//        NOTUN FORMULAY KORBO EKHON
+        
+        if(empty($firstname))
+        {
+            $errorFirstname = "First name must not be empty";
+        }
+        if(empty($lastname))
+        {
+            $errorLastname = "Last name must not be empty";
+        }
+        if(!filter_var($email,FILTER_VALIDATE_EMAIL))
+        {
+            $errorEmail = "Invalid Email";
+        }
+        if(empty($body))
+        {
+            $errorBody = "Message field must not be empty";
+        }
+        
+        
+        
+        
+        /*
+        if(empty($firstname))
+        {
+            $error = "Firstname must not be empty";
+        }
+        else if(empty($lastname))
+        {
+            $error = "Last name must not be empty";
+        }
+        else if(!filter_var($email,FILTER_VALIDATE_EMAIL))
+        {
+            $error = "Invalid Email";
+        }
+        else if(empty($body))
+        {
+            $error = "Message must not be empty";
+        }
+         
+         */
+        else 
+        {
+           $sql = "INSERT INTO tbl_contact(firstname,lastname,email,body)
+                  VALUES('$firstname','$lastname','$email','$body')
+                   ";
+           $inserted_rows = $db->insert($sql);
+           
+           if($inserted_rows)
+           {
+               $msg = "Message Sent Successfully";
+           }
+           else
+           {
+              $error = "Message not sent";
+           }
+                   
+        }
+    }
 ?>
 
 
@@ -104,19 +184,11 @@ if(isset($_POST['submit']))
 
 
 <?php
-/*
-      if(isset($error))
-      {
-          echo "<span style='color:red'>$error</span>";
-      }
-      if(isset($msg))
-      {
-           echo "<span style='color:green'>$msg</span>";
-      }
-   */ 
+    if(isset($msg))
+    {
+         echo "<span style='color:green'>$msg</span>";
+    }
 ?>
-
-
 
 
                         
@@ -125,50 +197,42 @@ if(isset($_POST['submit']))
 <tr>
         <td>Your First Name:</td>
         <td>
-           <?php
-           if(isset($errorFirstname))
-           {
-               echo "<span class='error'>$errorFirstname</span>";
-           }
-           ?>
         <input type="text" name="firstname" placeholder="Enter first name">
+        <?php 
+        if(isset($errorFirstname))
+        echo "<span class='cuserror'>$errorFirstname</span>"; 
+        ?>
         </td>
 </tr>
 <tr>
         <td>Your Last Name:</td>
         <td>
-          <?php
-           if(isset($errorLastname))
-           {
-               echo "<span class='error'>$errorLastname</span>";
-           }
-           ?>
         <input type="text" name="lastname" placeholder="Enter Last name">
+        <?php
+        if(isset($errorLastname))
+        echo "<span class='cuserror'>$errorLastname</span>"; 
+        ?>
         </td>
 </tr>
 
 <tr>
-        <td>Your Email Address:</td>
+        <td>Your Email:</td>
         <td>
-           <?php
-           if(isset($errorEmail))
-           {
-               echo "<span class='error'>$errorEmail</span>";
-           }
-           ?>
         <input type="text" name="email" placeholder="Enter Email Address">
+        <?php
+        if(isset($errorEmail))
+        echo "<span class='cuserror'>$errorEmail</span>"; 
+        ?>
         </td>
 </tr>
 <tr>
         <td>Your Message:</td>
         <td>
-            <?php
-           if(isset($errorBody))
-           {
-               echo "<span class='error'>$errorBody</span>";
-           }
-           ?>
             <textarea name="body"></textarea>
+            <?php
+            if(isset($errorBody))
+            echo "<span class='cuserror'>$errorBody</span>"; 
+            ?>
         </td>
 </tr>
 <tr>

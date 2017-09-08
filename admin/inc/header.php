@@ -74,15 +74,14 @@
                     <div class="floatleft">
                         <img src="img/img-profile.jpg" alt="Profile Pic" /></div>
                     
-                <?php
-                
-                if(isset($_GET['action']) && $_GET['action'] == "logout")
-                {
-                    Session::destroy();
-                }
-                
-                
-                ?>
+            <?php
+
+            if(isset($_GET['action']) && $_GET['action'] == "logout")
+            {
+                Session::destroy();
+            }
+
+            ?>
                     
                     
                     

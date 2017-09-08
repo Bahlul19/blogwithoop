@@ -42,4 +42,4 @@ $sql = "SELECT * FROM tbl_page WHERE id = '$page_id'";
     
     <?php include('inc/sidebar.php'); ?>
 
-    <?php include('inc/footer.php'); ?>
+<?php include('inc/footer.php'); ?>

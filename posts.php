@@ -4,7 +4,7 @@
             
 <?php
 //get the id(catagory)
-if(!isset($_GET['catagory'])||$_GET['catagory'] == NULL)
+if(!isset($_GET['catagory'])|| $_GET['catagory'] == NULL)
 {
     header("Location:404.php");
 }
