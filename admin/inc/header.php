@@ -87,7 +87,7 @@
                     
                     <div class="floatleft marginleft10">
                         <ul class="inline-ul floatleft">
-                            <li>Hello Admin</li>
+                            <li>Hello <?php echo Session::get('username'); ?></li>
                             <li><a href="?action=logout">Logout</a></li>
                         </ul>
                     </div>
@@ -101,11 +101,69 @@
         <div class="grid_12">
             <ul class="nav main">
                 <li class="ic-dashboard"><a href="index.php"><span>Dashboard</span></a> </li>
-                <li class="ic-form-style"><a href=""><span>User Profile</span></a></li>
+                <li class="ic-form-style"><a href="profile.php"><span>User Profile</span></a></li>
 				<li class="ic-typography"><a href="changepassword.php"><span>Change Password</span></a></li>
-				<li class="ic-grid-tables"><a href="inbox.php"><span>Inbox</span></a></li>
-                <li class="ic-charts"><a href="postlist.php"><span>Visit Website</span></a></li>
+				<li class="ic-grid-tables"><a href="inbox.php">
+                                        <span>Inbox
+                                        
+            <?php
+
+//    $sql = "SELECT * FROM tbl_contact WHERE status =0";
+//    $notification = $db->select($sql);
+//    if($notification)
+//    {
+//        $count = mysqli_num_rows($notification);
+//        echo "(".$count.")";
+//    }
+//    else 
+//    {
+//        echo "(0)";
+//    }
+            
+//            $sql = "SELECT * FROM tbl_contact WHERE status=0";
+//            $notification = $db->select($sql);
+//            if($notification)
+//            {
+//                $count = mysqli_num_rows($notification);
+//                echo "(".$count.")";
+//            }
+//            else
+//            {
+//                echo "(0)";
+//            }
+            
+            //status = 0 mean unseen or unread.
+            
+            $sql = "SELECT * FROM tbl_contact WHERE status = 0";
+            $notification = $db->select($sql);
+            if($notification)
+            {
+                $count = mysqli_num_rows($notification);
+                echo "(".$count.")";
+            }
+            else
+            {
+                echo "(0)";
+            }
+            
+            ?>
+
+</span></a></li>
+
+
+<li class="ic-charts"><a href="adduser.php"><span>Add User</span></a></li>
+
+<li class="ic-charts"><a href="userlist.php"><span>User List</span></a></li>
+
             </ul>
         </div>
         <div class="clear">
         </div>
+        
+        
+        <?php
+        
+        $userID = Session::get('userID');
+        $userRole = Session::get('userRole');
+        
+        ?>
