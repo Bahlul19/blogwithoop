@@ -5,7 +5,17 @@
 <?php include('inc/sidebar.php'); ?> 
         
          <!--Sidebar-->
-        
+         
+<!--         Only admin can access adduser.php page-->
+    <?php
+    
+    if(!Session::get('userRole') == "0")
+    {
+        echo "<script>window.location='index.php'</script>";
+    }
+    
+    ?>
+
         <div class="grid_10">
 		
             <div class="box round first grid">

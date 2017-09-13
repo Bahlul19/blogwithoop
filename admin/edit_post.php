@@ -40,6 +40,7 @@ else
         $body   = mysqli_real_escape_string($db->link, $_POST['body']);
         $author = mysqli_real_escape_string($db->link, $_POST['author']);
         $tags   = mysqli_real_escape_string($db->link, $_POST['tags']);
+        $userid   = mysqli_real_escape_string($db->link, $_POST['userid']);
        
         
         $permited = array('jpg', 'jpeg', 'png', 'gif');
@@ -89,7 +90,8 @@ if(!empty($file_name))
                     body = '$body',
                     image = '$upload_image',
                     author = '$author',
-                    tags = '$tags'
+                    tags = '$tags',
+                    userid = '$userid'
                     WHERE id = '$edit_post'
                     ";
             $updated_row = $db->update($sql);
@@ -116,7 +118,8 @@ if(!empty($file_name))
                     title = '$title',
                     body = '$body',
                     author = '$author',
-                    tags = '$tags'
+                    tags = '$tags',
+                    userid = '$userid'
                     WHERE id = '$edit_post'
                     ";
             $updated_row = $db->update($sql);
@@ -247,9 +250,12 @@ lagy mono oy -->
         <td>
             <label>Author</label>
         </td>
-        <td>
-            <input type="text" name="author" value="<?=$result['author'];?>" class="medium" />
-        </td>
+        
+      <td>
+    <input type="text" name="author" value="<?php echo Session::get('username')?>" class="medium" />
+    <input type="hidden" name="userid" value="<?php echo Session::get('userId')?>" class="medium" />
+    </td>
+        
     </tr>
     
     

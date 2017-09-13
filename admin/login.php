@@ -51,7 +51,6 @@ Session::checkLogin();
                 Session::set("login", true);
                 Session::set("username", $value['username']);
                 Session::set("userId", $value['id']);
-//                Session::set("userRole", $value['role']);
                 Session::set("userRole",$value['role']);
                 header("Location:index.php");
             }

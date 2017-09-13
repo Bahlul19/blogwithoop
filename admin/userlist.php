@@ -87,8 +87,19 @@ if($userList)
     
     <td>
         <a href="viewuser.php?userid=<?=$value['id']?>">View</a> 
-        || <a onclick="return confirm('Are you sure to delete')"
+        
+        
+<!--        Only admin can access the delete part of the page-->
+       <?php
+       
+       if(Session::get('userRole')=='0')
+       {
+           ?>
+           
+           || <a onclick="return confirm('Are you sure to delete')"
               href="?deluser=<?=$value['id']?>">Delete</a>
+
+       <?php } ?> 
         <!--jodi same file o delete/update korte oyy taile path kowa lage na ?khali id ta -->
     </td>
      </tr>

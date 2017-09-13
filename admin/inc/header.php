@@ -107,30 +107,6 @@
                                         <span>Inbox
                                         
             <?php
-
-//    $sql = "SELECT * FROM tbl_contact WHERE status =0";
-//    $notification = $db->select($sql);
-//    if($notification)
-//    {
-//        $count = mysqli_num_rows($notification);
-//        echo "(".$count.")";
-//    }
-//    else 
-//    {
-//        echo "(0)";
-//    }
-            
-//            $sql = "SELECT * FROM tbl_contact WHERE status=0";
-//            $notification = $db->select($sql);
-//            if($notification)
-//            {
-//                $count = mysqli_num_rows($notification);
-//                echo "(".$count.")";
-//            }
-//            else
-//            {
-//                echo "(0)";
-//            }
             
             //status = 0 mean unseen or unread.
             
@@ -151,7 +127,21 @@
 </span></a></li>
 
 
-<li class="ic-charts"><a href="adduser.php"><span>Add User</span></a></li>
+
+<!--Only admin can Add User thats mean only admin can access adduser.php page-->
+
+
+<?php
+
+    if(Session::get('userRole') == "0")
+    {
+        ?>
+    <li class="ic-charts"><a href="adduser.php"><span>Add User</span></a></li>
+   <?php } ?>
+
+
+
+
 
 <li class="ic-charts"><a href="userlist.php"><span>User List</span></a></li>
 
@@ -161,9 +151,3 @@
         </div>
         
         
-        <?php
-        
-        $userID = Session::get('userID');
-        $userRole = Session::get('userRole');
-        
-        ?>

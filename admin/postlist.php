@@ -17,13 +17,13 @@
                 <tr>
                         <th width="5%">No</th>
                         <th width="15%">Post Title</th>
-                        <th width="20%">Description</th>
+                        <th width="18%">Description</th>
                         <th width="10%">Category</th>
                         <th width="7%">Image</th>
-                        <th width="13%">Author</th>
-                        <th width="10%">Tags</th>
-                        <th width="10%">Date</th>
-                        <th width="10%">Action</th>
+                        <th width="12%">Author</th>
+                        <th width="8%">Tags</th>
+                        <th width="9%">Date</th>
+                        <th width="16%">Action</th>
                 </tr>
         </thead>
         <tbody>
@@ -54,8 +54,33 @@ $sql = "SELECT tbl_post.*, tbl_catagory.cat_name FROM tbl_post INNER JOIN tbl_ca
 <td><?=$value['author']?></td>
 <td><?=$value['tags']?></td>
 <td><?=$format->formatDate($value['date'])?></td>
-<td><a href="edit_post.php?editpostid=<?=$value['id']?>">Edit</a>
-|| <a onclick="return confirm('Are you sure to delete')" href="delete_post.php?delpostid=<?=$value['id']?>">Delete</a></td>
+
+
+<!--Only jara post dise mane jar under a post ache tara and admin a post edit and delete
+korto farbo-->
+<td>
+     <a href="view_post.php?viewpostid=<?=$value['id']?>">View</a>
+     
+     <?php
+     
+     if(Session::get('userId')== $value['userid'] || Session::get('userRole') =="0")
+     {
+         ?>
+     || <a href="edit_post.php?editpostid=<?=$value['id']?>">Edit</a>
+    
+            || <a onclick="return confirm('Are you sure to delete')" href="delete_post.php?delpostid=<?=$value['id']?>">Delete</a>
+
+    <?php } ?>
+     
+     
+     
+     
+     
+   
+
+</td>
+
+
 
 </tr>
 
