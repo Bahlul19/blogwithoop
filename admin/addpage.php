@@ -25,8 +25,12 @@
     }
     else
     {
+	/*
         $sql = "INSERT INTO tbl_page(name, body) VALUES ('$page_title', '$page_content')";
         $inserted_rows = $db->insert($sql);
+	*/
+	$sql = $db->prepare("INSERT INTO tbl_page (name, body) VALUES (?, ?)");
+	$sql->bind_param("ss", '$page_title', '$page_content');
         
         if($inserted_rows)
         {
