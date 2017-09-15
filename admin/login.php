@@ -44,23 +44,24 @@ Session::checkLogin();
 
         if($result != false)
         {
-            $value = mysqli_fetch_array($result);
-            $row = mysqli_num_rows($result);
-            if($row>0)
-            {
+//            $value = mysqli_fetch_array($result);
+//            $row = mysqli_num_rows($result);              
+//            if($row>0)
+//            {
+                $value = $result->fetch_assoc();
                 Session::set("login", true);
                 Session::set("username", $value['username']);
                 Session::set("userId", $value['id']);
                 Session::set("userRole",$value['role']);
                 header("Location:index.php");
-            }
-        
-       
-            
-            else
-            {
-    echo "<span style='color:red;font-size:18px'>No Result Found</span>";
-            }
+//            }
+//        
+//       
+//            
+//            else
+//            {
+//    echo "<span style='color:red;font-size:18px'>No Result Found</span>";
+//            }
         }
         else
         {
@@ -83,9 +84,21 @@ Session::checkLogin();
                             <input type="submit" name="submit" value="Log in" />
 			</div>
 		</form><!-- form -->
+                
+<!--                <div class="button">
+                    <a href="forgot_password.php">Forgot Password !</a>
+		</div> button -->
+                
+                 <div class="button">
+                    <a href="forgot_password.php">Forgot Password !</a>	
+		</div><!-- button -->
+
 		<div class="button">
 			
 		</div><!-- button -->
+                
+               
+                
 	</section><!-- content -->
 </div><!-- container -->
 </body>

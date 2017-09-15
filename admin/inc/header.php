@@ -67,8 +67,8 @@
                     <img src="img/livelogo.png" alt="Logo" />
 				</div>
 				<div class="floatleft middle">
-					<h1>Training with live project</h1>
-					<p>www.trainingwithliveproject.com</p>
+					<h1>Welcome to the admin section of the blog</h1>
+					<p>Learn coding, do earning</p>
 				</div>
                 <div class="floatright">
                     <div class="floatleft">
