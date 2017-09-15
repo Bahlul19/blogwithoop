@@ -5,8 +5,10 @@ include ('inc/header.php');
 <!--Catch the id first-->
 
 <?php
+ $postid = mysqli_real_escape_string($db->link, $_GET['id']);
 
-if(!isset($_GET['id'])||$_GET['id'] == NULL)
+ /*
+ if(!isset($_GET['id'])||$_GET['id'] == NULL)
 {
     header("Location:404.php");
 }
@@ -14,7 +16,17 @@ else
 {
     $id = $_GET['id'];
 }
-
+*/
+if(!isset($postid) || $postid == NULL)
+{
+    header("Location:404.php");
+}
+else 
+{
+    $id = $postid;
+}
+ 
+ 
 ?>
 <div class="contentsection contemplete clear">
 		<div class="maincontent clear">

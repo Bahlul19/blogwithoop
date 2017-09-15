@@ -10,15 +10,15 @@
 <?php
 
 //to check the id and get the id
-
-if(!isset($_GET['viewpostid']) || $_GET['viewpostid']== NULL)
+$viewpostid = mysqli_real_escape_string($db->link, $_GET['viewpostid']);
+if(!isset($viewpostid) || $viewpostid== NULL)
 {
    echo "<script>window.location='postlist.php';</script>";
 //    header("Location:catlist.php");
 }
 else
 {
-    $view_post = $_GET['viewpostid'];
+    $view_post = $viewpostid;
 }
 ?>
          <?php

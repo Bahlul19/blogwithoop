@@ -15,14 +15,16 @@
         
 <!--        php code for add post will go here-->
 
+
     <?php
-    if(!isset($_GET['msgid']) && $_GET['msgid']==NULL)
+    $viewmessageid = mysqli_real_escape_string($db->link, $_GET['msgid']);
+    if(!isset($viewmessageid) && $viewmessageid==NULL)
     {
         echo "<script>windows.location= 'inbox.php'; </script>";
     }
     else
     {
-        $msgid = $_GET['msgid'];
+        $msgid = $viewmessageid;
     }
     ?>
 

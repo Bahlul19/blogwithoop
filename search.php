@@ -2,13 +2,14 @@
             
 <?php
 //get the id(catagory)
-if(!isset($_GET['search']) || $_GET['search'] == NULL)
+ $search = mysqli_real_escape_string($db->link, $_GET['search']);
+if(!isset($search) || $search == NULL)
 {
     header("Location:404.php");
 }
 else 
 {
-    $search = $_GET['search'];
+    $search = $search;
 }
 
 ?>  

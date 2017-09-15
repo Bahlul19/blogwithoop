@@ -44,6 +44,7 @@ Session::checkLogin();
         {
             $emailSql = "SELECT * FROM tbl_user WHERE email = '$email' limit 1";
             $checkEmail = $db->select($emailSql);
+            
             if($checkEmail != false)
             {
                while($value = $checkEmail->fetch_assoc())

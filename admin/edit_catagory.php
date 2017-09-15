@@ -8,15 +8,16 @@
 <?php
 
 //to check the id and get the id
+   $catid = mysqli_real_escape_string($db->link, $_GET['catid']);
 
-if(!isset($_GET['catid']) ||$_GET['catid']== NULL)
+if(!isset($catid) || $catid== NULL)
 {
    echo "<script>window.location='catlist.php';</script>";
 //    header("Location:catlist.php");
 }
 else
 {
-    $edit_catagory = $_GET['catid'];
+    $edit_catagory = $catid;
 }
 ?>    
          

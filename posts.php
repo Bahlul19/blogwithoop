@@ -4,13 +4,17 @@
             
 <?php
 //get the id(catagory)
-if(!isset($_GET['catagory'])|| $_GET['catagory'] == NULL)
+
+ $postsid = mysqli_real_escape_string($db->link, $_GET['catagory']);
+
+
+if(!isset($postsid)|| $postsid == NULL)
 {
     header("Location:404.php");
 }
 else 
 {
-    $cat_id = $_GET['catagory'];
+    $cat_id = $postsid;
 }
 
 ?>  

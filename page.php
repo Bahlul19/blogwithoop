@@ -4,14 +4,17 @@
 
 <?php
 
-if(!isset($_GET['pageid']) && $_GET['pageid'] == NULL)
+ $pageid = mysqli_real_escape_string($db->link, $_GET['pageid']);
+
+
+if(!isset($pageid) && $pageid == NULL)
 {
     header("location:404.php");
 }
 
 else
 {
-   $page_id = $_GET['pageid'];
+   $page_id = $pageid;
 }
 
 ?>

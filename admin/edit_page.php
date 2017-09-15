@@ -30,15 +30,15 @@
 </style>
 
 <?php
-
-if(!isset($_GET['id']) && $_GET['id'] == NULL)
+$editpageid = mysqli_real_escape_string($db->link, $_GET['id']);
+if(!isset($editpageid) && $editpageid == NULL)
 {
     header("location:index.php");
 }
 
 else
 {
-   $page_id = $_GET['id'];
+   $page_id = $editpageid;
 }
 
 ?>

@@ -9,14 +9,14 @@
 <!--      Get the view id from the userlist.php-->
 
         <?php
-        
-        if(!isset($_GET['userid']) && $_GET['userid'] == NULL)
+        $viewuserid = mysqli_real_escape_string($db->link, $_GET['userid']);
+        if(!isset($viewuserid) && $viewuserid == NULL)
         {
            echo "<script>windows.location= 'userlist.php'; </script>";
         }
          else
         {
-            $userID = $_GET['userid'];
+            $userID = $viewuserid;
         } 
        
         ?>
