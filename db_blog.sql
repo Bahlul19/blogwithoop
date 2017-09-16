@@ -63,7 +63,7 @@ CREATE TABLE `tbl_contact` (
 --
 -- Dumping data for table `tbl_contact`
 --
-
+-- Homes! No crypted E-Mail on GitHub is very dangerous!
 INSERT INTO `tbl_contact` (`id`, `firstname`, `lastname`, `email`, `body`, `status`, `date`) VALUES
 (1, 'Tausif', 'Siddiquee', 'bahlul.tausif@gmail.com', 'This is a test message', 1, '2017-09-08 09:48:57'),
 (2, 'Fahmi', 'Chy', 'fagggegmail.com', 'Thisknd fhub', 1, '2017-09-08 09:48:57'),
